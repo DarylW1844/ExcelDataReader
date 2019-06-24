@@ -19,8 +19,8 @@ steps:
 
  - task: NuGetCommand@2
    inputs:
-     versionEnvVar: latest
-     patchVersion: '1.0.5'
+    # versionEnvVar: latest
+    # patchVersion: '1.0.5'
      restoreSolution: '$(solution)'
     
 
