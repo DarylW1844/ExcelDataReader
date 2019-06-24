@@ -19,12 +19,13 @@ steps:
 
 - task: NuGetCommand@2
   inputs:
-    versionEnvVar: '1.0.5'
+    versionEnvVar: latest
     restoreSolution: '$(solution)'
     
 
 - task: VSBuild@1
   inputs:
+    vsVersion: latest
     solution: '$(solution)'
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
     platform: '$(buildPlatform)'
