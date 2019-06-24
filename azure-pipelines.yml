@@ -19,7 +19,9 @@ steps:
 
 - task: NuGetCommand@2
   inputs:
+    versionEnvVar: '1.0.5'
     restoreSolution: '$(solution)'
+    
 
 - task: VSBuild@1
   inputs:
