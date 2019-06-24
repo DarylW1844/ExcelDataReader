@@ -15,17 +15,18 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-# - task: NuGetToolInstaller@0
+ - task: NuGetToolInstaller@0
 
-# - task: NuGetCommand@2
-#   inputs:
-#     versionEnvVar: '1.0.0'
-#     restoreSolution: '$(solution)'
+ - task: NuGetCommand@2
+   inputs:
+     versionEnvVar: latest
+     patchVersion: '1.0.5'
+     restoreSolution: '$(solution)'
     
 
 - task: VSBuild@1
   inputs:
-    vsVersion: '1.0.0'
+    # vsVersion: '1.0.6'
     solution: '$(solution)'
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
     platform: '$(buildPlatform)'
